@@ -1,0 +1,16 @@
+*
+!*/
+
+venv/
+nvenv/
+.venv/
+env/
+*egg-info/
+dist/
+build/
+__pycache__/
+*.pyc
+
+!*.py
+!*.txt
+!.gitignore

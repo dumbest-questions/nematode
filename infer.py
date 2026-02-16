@@ -3,7 +3,9 @@ import string
 from tokenizer import BPETokenizer
 from asv_transformer import ASVTransformer
 
-FILENAME = "asv_bible_brain.npz"
+MODEL_FILENAME = "asv_bible_brain.npz"
+TOKENIZER_FILENAME = "bible_tokenizer.pkl"
+
 D_MODEL = 64
 
 def generate_top_k(model, tokenizer, start_phrase, length=20, temperature=0.7, k=5):
@@ -20,8 +22,8 @@ def generate_top_k(model, tokenizer, start_phrase, length=20, temperature=0.7, k
         ids.append(next_id)
     return tokenizer.decode(ids)
 
-tokenizer = BPETokenizer.load("bible_tokenizer.pkl")
-brain = ASVTransformer.load(FILENAME)
+tokenizer = BPETokenizer.load(TOKENIZER_FILENAME)
+brain = ASVTransformer.load(MODEL_FILENAME)
 
 test_prompts = {
     "Biblical Start": "In the beginning",
